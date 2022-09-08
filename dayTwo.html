@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayTwo</title>
+    <style>
+        body{margin-left: 5%;}
+        .algn{margin-left:6%}
+        .algna{margin-left: 8%}
+    </style>
+</head>
+<body>
+    <h2>Explain call(), apply() and, bind() methods. Give an example of call(), apply(), bind()</h2>
+    <p>These are just different ways of invoking or calling a function. When you are calling a function using any of these 3 then you</p>
+    <p>don't have to define in the function that will be taking object as a parameter.</p>
+    <p>It will assume that the first argument which is coming while calling the function will be an object only.</p>
+    <p><b>Call:-</b>It invokes the function and allows us to pass arguments one by one.</p>
+    <p><b>Apply:-</b>It invokes the function and allows us to pass arguments as an array.</p>
+    <p><b>Bind:-</b>It returns a new function, and this new function you can use anytime anywhere.</p>
+    <pre>
+        let person = {  
+            name: "James",
+            lname: "Smith",
+            hello: function(thing) {
+                console.log(this.name +" "+this.lname + " says hello " + thing);
+            }
+        }
+
+        let one = {
+            name: "Joy", 
+            lname: "Stuff"
+        }
+
+        let two = {
+            name:"tom",
+            lname:"cruise"
+        }
+
+        person.hello("world");                  // output:  James Smith says hello world
+        person.hello.call(one, "world");        // output:  Joy Stuff says hello world
+        person.hello.apply(one,["sky"]);        // output:  Joy Stuff says hello sky
+
+        let result = person.hello.bind(two);
+        result("world");                        //output:  tom cruise says hello Rider
+    </pre>
+
+    <h2>What are objects in javascript?</h2>
+        <p>Objects are the non-primitive datatypes and are use to store multiple data in the form of key value pairs.</p>
+        <p>JavaScript objects can have properties, which define their characteristics.</p>
+        <pre>
+            const per = {
+                name: 'Sai',
+                age: 20
+            }
+            console.log('I am '+ per.name + 'and i am' + per.age);
+        </pre>
+    
+    <h2>What are function constructors?</h2>
+        <p>Function constructor is kind of regular function to create multiple objects at a time. when creating function constructor, it is good practice to keep the first letter of the name, capital.</p>
+        <p>new keyword is mandatory to be used with function constructor.</p>
+        <p>Calling the constructor directly can create functions dynamically.</p>
+        <pre>
+            function Person(name, salary){
+                this.name = name,
+                this.salary = salary
+            }
+            const PersonOne = new Person('Joy', 50000);
+            console.log(PersonOne.name);
+        </pre>
+    
+    <h2>Explain prototypes?</h2>
+        <p>Prototypes are the mechanism by which JavaScript objects inherit features from one another. 
+            Every object in JavaScript has a built-in property, which is called its prototype.</p>
+        <p>The prototype is itself an object, so the prototype will have its own prototype, making what's 
+            called a prototype chain. The chain ends when we reach a prototype that has null for its own 
+            prototype.</p>
+        <p>When you try to access a property of an object: if the property can't be found in the object 
+            itself, the prototype is searched for the property. If the property still can't be found, 
+            then the prototype's</p> 
+        <p>prototype is searched, and so on until either the property is found, or the end of the chain 
+            is reached, in which case undefined is returned.</p>
+    
+    <h2>What is prototype chain?</h2>
+        <p>Every object has a prototype, including the prototype object. This “chain” goes all the way 
+            back until it reaches an object that has no prototype, usually Object's prototype.</p>
+    
+    <h2>Give an example of inheritance using function constructor?</h2>
+        <pre>
+            function Person(name, course,desi){
+                this.name = name;
+                this.course = course;
+                this.desi = desi;
+            }
+            
+            const PersonInheriated = new Person("Joy","CSE","Student");
+            console.log('Name is ' + PersonInheriated.name + ' course is ' + PersonInheriated.course + ' with desigination ' + PersonInheriated.desi);
+
+            // output:- Name is Joy course is CSE with desigination Student
+        </pre>
+
+    <h2>What are callbacks?</h2>
+        <p> Callback function which is passed as argument to another function. These functions are executed after another function has finished its execution.</p>
+        <p><b>Why do we use it:</b> The callbacks are needed because javascript is an event driven language. That means instead of waiting for a response</p>
+             <p class="algna">javascript will keep executing while listening for other events Let's take an example with the first function invoking an API call and </p>
+             <p class="algna">the next function which logs the message.</p>
+        <pre>
+            function output(callback){
+                console.log("out");
+                callback()
+            }
+
+            function input(){
+                console.log("in");
+            }
+            output(input);
+        </pre>
+    
+    <h2>What is the use of setTimeout?</h2>
+        <p>The global setTimeout() method is used to call a function or evaluate an expression 'after' a specified 
+            number of milliseconds.</p>
+        <pre>
+            setTimeout(function () {
+                console.log("Good Evening");
+            }, 2000);
+        </pre>
+   
+    
+    <h2>What are pure functions?</h2>
+        <p>A function is called pure function if it always returns the same result for same argument values and it has no side effects like modifying an argument or outputting something.</p>
+        <p>Pure functions return the same output if we use the same input parameters.</p>
+    
+    <script>
+        let person = {  
+            name: "James",
+            lname: "Smith",
+            hello: function(thing) {
+                console.log(this.name +" "+this.lname + " says hello " + thing);
+            }
+        }
+
+        let one = {
+            name: "Joy", 
+            lname: "Stuff"
+        }
+
+        let two = {
+            name:"tom",
+            lname:"cruise"
+        }
+
+        person.hello("world");  
+        person.hello.call(one, "world");
+        person.hello.apply(one,["sky"]);
+
+        let result = person.hello.bind(two);
+        result("Rider");
+
+
+        function Person(name, course,desi){
+            this.name = name;
+            this.course = course;
+            this.desi = desi;
+        }
+        
+        const PersonInheriated = new Person("Joy","CSE","Student");
+        console.log('Name is ' + PersonInheriated.name + ' course is ' + PersonInheriated.course + ' with desigination ' + PersonInheriated.desi);
+    </script>
+</body>
+</html>
