@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    		
+<h1>Write code to get 1st H1 element from a webpage using DOM?</h1>
+    <h1>I am inside first h1</h1>
+    <h1>I am inside second h1</h1>
+    <h1>I am inside third h1</h1>
+<pre>
+    let headElement = document.getElementsByTagName('h1');
+    console.log(headElement[0].innerText);
+</pre>
+
+<h1>Create a button , on click of which new Heading tag h1 should be added with text as "MERN stack" on the screen above button?</h1>
+
+    <p id="space"></p>
+    <button onclick="buttClick()">Click</button>    
+    <pre>
+        function buttClick(){
+            let btnText = document.getElementById("space");
+            let ele = document.createElement('h1');
+            btnText.appendChild(ele);
+            ele.innerText =  "MERN stack"
+        }
+    </pre>
+    
+
+<h1>Write code to implement timer clock using JS -- display HH:MM:SS -- the time should keep updating every second?</h1>
+    <h3>Clock</h3>
+    <p id="time"></p>
+    <pre>
+        setInterval(clock,1000);
+
+        function clock(){
+            let date = new Date();
+            let hur = date.getHours();
+            let min = date.getMinutes();
+            let sec = date.getSeconds();
+            let zone = "AM";
+
+            if(hur>12)
+            {
+                hur -= 12;
+                zone = "PM";
+            }
+
+            if(hur === 0)
+            {
+                hur = 12;
+                zone = "AM";
+            }
+
+            hur = (hur < 10) ? "0" + hur : hur;
+            min = (min < 10) ? "0" + min : min;
+            sec = (sec < 10) ? "0" + sec : sec;
+
+            let tim = document.getElementById("time");
+            let uptime = hur +":"+min+":"+sec+" "+zone
+            tim.innerText = uptime;
+        }
+    </pre>
+
+<h1>Create an HTML page having content as Hello world and a button named Replace Text. When user will click on this button page content should be changed to "Welcome to Elevation academy"?</h1>
+
+    <p id="hideText">Hello World</p>
+    <button onclick="replace()">Replace Text</button><br><br>
+
+    <pre>
+        function replace(){
+            let hideTxt = document.getElementById("hideText");
+            hideTxt.innerText = 'Welcome to Elevation Academy'
+        }
+    </pre>
+
+<h1>Create an HTML page having content as Hello world and a button named "Hide Text." When user will click on this button hide the "Hello World" text?</h1>
+    <p id="hide">Hello World</p>
+    <button onclick="hideText()">HideText</button>
+    <pre>
+        function hideText(){
+            let hid = document.getElementById("hide");
+            hid.style.display = 'none';
+        }
+    </pre>
+
+<h1>Given an array of 0's and 1's find out number of 0's?</h1>
+    <pre>
+        let arr = [0,1,0,1,1,0,1,0];
+        let count = 0;
+        for(let i=0;i<=arr.length-1;i++)
+        {
+            if(arr[i] == 0)
+                count++;
+        }
+        console.log(count);
+    </pre>
+
+
+<h1>Given an array find out total no. of odd and even nos?</h1>
+        <pre>
+            let arrOne = [1,2,4,3,6,9,8,7];
+            let even = 0;
+            let odd = 0;
+            for(let i=0;i<=arr.length-1;i++)
+            {
+                if(arr[i]%2== 0)
+                    even++;
+                else
+                    odd++;
+            }
+            console.log("even :"+even);
+            console.log("odd :"+odd);
+        </pre>
+
+<h1>Given a string find out number of vowels?</h1>
+        <pre>
+            let str = "visauiou";
+        let vowels = 0;
+
+        for(let i=0;i<=str.length-1;i++)
+        {
+            if(str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o' || str.charAt(i) == 'u')
+                vowels++;
+        }
+        console.log("vowles are:"+vowels);
+        </pre>
+       
+<h1> Write a code to create two objects with 2 properties each, one will be string and other will be an array. Create a function to check if all the elements of the arrays in both the objects are same?</h1>
+        <pre>
+            let objectOne ={
+                name: "jay",
+                arr : [1,4,6,2,9,7]
+            }
+    
+            let objectTwo ={
+                name: "Joy",
+                arrt: [1,4,6,2,9,7]
+            }
+    
+            function compare(one,two){
+                let arrOne = one.arr;
+                let arrTwo = two.arrt;
+                let equal = 0;
+    
+                if(arrOne.length != arrTwo.length)
+                    return false;
+                else
+                {
+                    for(let i=0;i<=arrOne.length-1;i++)
+                    {
+                        if(arrOne[i] === arrTwo[i])
+                            equal++;      
+                    } 
+                    console.log(equal);
+                    if(equal == arrOne.length)
+                    {
+                        console.log("array are same");
+                    }
+                    else{
+                        console.log(" different");
+                    }   
+                }
+            }
+    
+            compare(objectOne,objectTwo);
+        </pre>
+
+
+    <script>
+        function buttClick(){
+            let btnText = document.getElementById("space");
+            let ele = document.createElement('h1');
+            btnText.appendChild(ele);
+            ele.innerText =  "MERN stack"
+        }
+
+        let headElement = document.getElementsByTagName('h1');
+        console.log(headElement[0].innerText);
+
+        setInterval(clock,1000);
+
+        function clock(){
+            let date = new Date();
+            let hur = date.getHours();
+            let min = date.getMinutes();
+            let sec = date.getSeconds();
+            let zone = "AM";
+
+            if(hur>12)
+            {
+                hur -= 12;
+                zone = "PM";
+            }
+
+            if(hur === 0)
+            {
+                hur = 12;
+                zone = "AM";
+            }
+
+            hur = (hur < 10) ? "0" + hur : hur;
+            min = (min < 10) ? "0" + min : min;
+            sec = (sec < 10) ? "0" + sec : sec;
+
+            let tim = document.getElementById("time");
+            let uptime = hur +":"+min+":"+sec+" "+zone
+            tim.innerText = uptime;
+        }
+
+        function replace(){
+            let hideTxt = document.getElementById("hideText");
+            hideTxt.innerText = 'Welcome to Elevation Academy'
+        }
+
+        function hideText(){
+            let hid = document.getElementById("hide");
+            hid.style.display = 'none';
+        }
+
+        let arr = [0,1,0,1,1,0,1,0];
+        let count = 0;
+        for(let i=0;i<arr.length;i++)
+        {
+            if(arr[i]== 0)
+                count++;
+        }
+        console.log(count);
+
+        let arrOne = [1,2,4,3,6,9,8,7];
+        let even = 0;
+        let odd = 0;
+        for(let i=0;i<arr.length;i++)
+        {
+            if(arr[i]%2== 0)
+                even++;
+            else
+                odd++;
+        }
+        console.log("even :"+even);
+        console.log("odd :"+odd);
+
+
+        let str = "visauiou";
+        let vowels = 0;
+
+        for(let i=0;i<str.length;i++)
+        {
+            if(str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o' || str.charAt(i) == 'u')
+                vowels++;
+        }
+        console.log("vowles are:"+vowels);
+
+        
+
+        let objectOne ={
+            name: "jay",
+            arr : [1,4,6,2,9,7]
+        }
+
+        let objectTwo ={
+            name: "Joy",
+            arrt: [1,4,6,2,9,7]
+        }
+
+        function compare(one,two){
+            let arrOne = one.arr;
+            let arrTwo = two.arrt;
+            let equal = 0;
+
+            if(arrOne.length != arrTwo.length)
+            console.log("different");
+            else
+            {
+                for(let i=0;i<arrOne.length;i++)
+                {
+                    if(arrOne[i] === arrTwo[i])
+                        equal++;      
+                } 
+                
+                if(equal == arrOne.length)
+                {
+                    console.log("array are same");
+                }
+                else{
+                    console.log("different");
+                }   
+            }
+        }
+
+        compare(objectOne,objectTwo);
+    </script>
+</body>
+</html>
+
+
